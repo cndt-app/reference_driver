@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block form %}
+    <form method="post" action="/test_connect">
+        <input type="hidden" name="sessionToken" value="{{ sessionToken }}">
+        <input type="hidden" name="webhook_url" value="{{ webhook_url }}">
+        <input type="hidden" name="redirect_url" value="{{ redirect_url }}">
+        <table>
+            <tr>
+                <td>
+                    Login:
+                </td>
+                <td>
+
+                    <input type="text" name="login" required="required"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td><input type="password" name="password" required="required"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="{{ redirect_url }}" class="cndt-btn cndt-btn-md cndt-btn-gray h-10">Cancel</a>
+                    <button class="cndt-btn cndt-btn-md cndt-btn-gray h-10" name="save">Save</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
