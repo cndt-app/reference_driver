@@ -1,1 +1,1 @@
-web: gunicorn minimal_flask.minimal:app 
+web: gunicorn main.app:app
