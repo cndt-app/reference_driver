@@ -8,6 +8,11 @@ app = Flask(__name__)
 logging.basicConfig()
 logger = logging.getLogger(__name__)
 
+@app.after_request
+def add_header(response):
+    response.cache_control.max_age = 1
+    return response
+
 @app.route("/stats", methods=["POST"])
 def stats():
     body = request.get_json()
