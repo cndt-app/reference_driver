@@ -81,4 +81,7 @@ async def request_sandbox(url, data):
     return status_code, content
 
 if __name__ == '__main__':
-    app.run()
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(gunicorn_logger.level)
+    app.run(debug = True)
