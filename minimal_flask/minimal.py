@@ -91,14 +91,16 @@ async def test_connect():
         "status_message": status_message
     }
 
-    sandbox_status, sandbox_content, redirect_url = await request_sandbox(callback_url, message, token)
+    sandbox_status, sandbox_content, callback_data = await request_sandbox(callback_url, message, token)
+
+    redirect_url = callback_data.get('redirect_url', request.form.get('return_url'))
 
     if sandbox_status in [200]:
         # return to the server's UI
         return redirect(redirect_url)
+
     # display an error to the user
-    redirect_link = f'<a href="{redirect_url}">Return</a>' if redirect_url else ''
-    return f"{sandbox_content}<br>{redirect_link}", sandbox_status
+    return f'{sandbox_content}<br><a href="{redirect_url}">Return</a>', sandbox_status
 
 
 def get_context():
@@ -126,17 +128,17 @@ async def request_sandbox2(url, data):
 
 
 async def request_sandbox(url, data, token):
-    redirect_url = None
+    callback_data = {}
     try:
         r = requests.post(url, json=data, headers={'Authorization': f'Bearer {token}'})
         status_code = r.status_code
-        redirect_url = r.json().get('redirect_url')
+        callback_data = r.json()
         content = r.content
     except Exception as e:
         status_code = 500
         content = e.__str__()
         logger.error(content)
-    return status_code, content, redirect_url
+    return status_code, content, callback_data
 
 
 if __name__ == '__main__':
