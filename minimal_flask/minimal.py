@@ -52,7 +52,7 @@ def refresh():
 
 @app.route("/connect", methods=["GET"])
 def connect():
-    context = {"driver_name": "Minimalistic Example"}
+    context = get_context()
     context.update(request.args)
     return render_template("connect_button.html", **context)
 
@@ -67,7 +67,20 @@ async def test_connect():
 
     _status = 0
     status_message = None
+
     # verify that the credentials are correct
+    errors = []
+    if login == 'failed_login':
+        errors.append('Login are incorrect')
+
+    if password == '123':
+        errors.append('Password to simple')
+
+    if errors:
+        context = get_context() | {'errors': errors}
+        context.update(request.form)
+
+        return render_template("connect_button.html", **context)
 
     # for refresh endpoint example
     expire_at = get_expiration_timestamp()
@@ -86,6 +99,10 @@ async def test_connect():
     # display an error to the user
     redirect_link = f'<a href="{redirect_url}">Return</a>' if redirect_url else ''
     return f"{sandbox_content}<br>{redirect_link}", sandbox_status
+
+
+def get_context():
+    return {"driver_name": "Minimalistic Example"}
 
 
 def get_auth_data(request):
