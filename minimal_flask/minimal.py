@@ -1,13 +1,13 @@
-import datetime
 import json
-from functools import wraps
-from flask import Flask, request, abort, jsonify, render_template, redirect
-from werkzeug.exceptions import HTTPException
-import requests
 import logging
-import zoneinfo
+import datetime
 
-app = Flask(__name__)
+import requests
+import zoneinfo
+from flask import Flask, request, render_template, redirect
+
+
+app = Flask(__name__, static_url_path="/static/", static_folder="static")
 logging.basicConfig()
 logger = logging.getLogger(__name__)
 

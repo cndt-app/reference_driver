@@ -1,0 +1,168 @@
+@import "./fonts.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+Custom classes
+ */
+
+/*Font types*/
+.cndt-text-h1 {
+    @apply text-h1 font-semibold
+}
+
+.cndt-text-title0 {
+    @apply text-title0 font-semibold
+}
+
+.cndt-text-title1 {
+    @apply text-title1 font-semibold
+}
+
+.cndt-text-title2 {
+    @apply text-title2 font-semibold
+}
+
+.cndt-text-title2light {
+    @apply text-title2 font-normal
+}
+
+.cndt-text-headline {
+    @apply text-headline font-semibold
+}
+
+.cndt-text-bodylarge {
+    @apply text-bodylarge font-normal
+}
+
+.cndt-text-subheadline1 {
+    @apply text-subheadline1 font-medium
+}
+
+.cndt-text-subheadline2 {
+    @apply text-subheadline2 font-medium
+}
+
+.cndt-text-bodysmall {
+    @apply text-bodysmall font-normal
+}
+
+.cndt-text-caption {
+    @apply text-caption text-gray-dark font-normal
+}
+
+/*Links*/
+.cndt-link {
+    @apply text-viola-dark hover:text-viola focus:text-viola transition ease-in
+}
+
+/*Buttons*/
+.cndt-btn {
+    @apply inline-flex justify-center items-center select-none rounded-lg focus:outline-none focus:shadow-3lg transition ease-in
+}
+
+.cndt-btn-sm {
+    @apply px-3 py-1.75 text-sm font-semibold
+}
+
+.cndt-btn-md {
+    @apply px-5 py-2.75 text-sm font-semibold
+}
+
+.cndt-btn-lg {
+    @apply px-6 py-3 cndt-text-headline
+}
+
+.cndt-btn-xl {
+    @apply px-6 py-4 cndt-text-headline
+}
+
+.cndt-btn-primary {
+    @apply text-white bg-viola hover:bg-viola-dark focus:bg-viola-dark
+}
+
+.cndt-btn-gray {
+    @apply text-gray-darkest bg-gray-lighter hover:bg-gray-lighter_medium focus:bg-gray-lighter_medium
+}
+
+.cndt-btn-danger {
+    @apply text-red bg-red-lighter hover:bg-red-light focus:bg-red-light
+}
+
+.cndt-btn-danger_red {
+    @apply text-gray-lightest bg-red hover:bg-red focus:bg-red
+}
+
+/*Inputs*/
+.cndt-input {
+    @apply appearance-none block w-full cndt-text-bodylarge bg-white border border-gray-medium border-opacity-60 rounded-md focus:bg-white focus:outline-none focus:ring-viola focus:ring-0
+}
+
+.cndt-input-sm {
+    @apply px-3 py-2
+}
+
+.cndt-input-md {
+    @apply px-3 py-3
+}
+
+.cndt-input-lg {
+    @apply px-3 py-4
+}
+
+.cndt-input__connect {
+    @apply bg-gray-lightest1 rounded-sm border-0 focus:ring-1
+}
+
+.cndt-input_disabled {
+    @apply bg-gray-lightest1 border-gray-lightest1 text-gray-medium cursor-not-allowed
+}
+
+/*Labels*/
+.cndt-label {
+    @apply block text-left font-semibold
+}
+
+.cndt-label-sm {
+    @apply cndt-text-subheadline2
+}
+
+.cndt-label-md {
+    @apply cndt-text-headline
+}
+
+/*Overrides*/
+.errorlist {
+    @apply text-red
+}
+
+.flatpickr-day {
+    @apply text-gray-darkest
+}
+
+.flatpickr-months .flatpickr-next-month:hover svg, .flatpickr-months .flatpickr-prev-month:hover svg {
+    @apply fill-viola
+}
+
+.flatpickr-day.endRange, .flatpickr-day.endRange.inRange, .flatpickr-day.endRange.nextMonthDay, .flatpickr-day.endRange.prevMonthDay, .flatpickr-day.endRange:focus, .flatpickr-day.endRange:hover, .flatpickr-day.selected, .flatpickr-day.selected.inRange, .flatpickr-day.selected.nextMonthDay, .flatpickr-day.selected.prevMonthDay, .flatpickr-day.selected:focus, .flatpickr-day.selected:hover, .flatpickr-day.startRange, .flatpickr-day.startRange.inRange, .flatpickr-day.startRange.nextMonthDay, .flatpickr-day.startRange.prevMonthDay, .flatpickr-day.startRange:focus, .flatpickr-day.startRange:hover {
+    @apply bg-viola border-viola
+}
+
+.flatpickr-day.today {
+    @apply border-gray-lighter
+}
+
+.flatpickr-day.inRange, .flatpickr-day.nextMonthDay.inRange, .flatpickr-day.nextMonthDay.today.inRange, .flatpickr-day.nextMonthDay:focus, .flatpickr-day.nextMonthDay:hover, .flatpickr-day.prevMonthDay.inRange, .flatpickr-day.prevMonthDay.today.inRange, .flatpickr-day.prevMonthDay:focus, .flatpickr-day.prevMonthDay:hover, .flatpickr-day.today.inRange, .flatpickr-day:focus, .flatpickr-day:hover,
+.flatpickr-day.today:focus, .flatpickr-day.today:hover {
+    @apply bg-gray-lighter border-gray-lighter
+}
+
+/*
+Hiding the element it's attached to until Alpine is fully loaded on the page
+https://alpinejs.dev/directives/cloak
+*/
+[x-cloak] {
+    display: none;
+}

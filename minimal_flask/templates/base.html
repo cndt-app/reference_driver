@@ -13,11 +13,7 @@
           href="https://cndt-static.s3.us-east-2.amazonaws.com/static/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16"
           href="https://cndt-static.s3.us-east-2.amazonaws.com/static/img/favicon/favicon-16x16.png">
-
-
-    <link rel="stylesheet" href="https://cndt-static.s3.us-east-2.amazonaws.com/static/compiled/styles.min.css">
-
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.min.css') }}">
 </head>
 <body>
 
@@ -59,43 +55,32 @@
                                     <input id="access_token" name="access_token" type="text" required="" value=""
                                            class="cndt-input cndt-input-lg cndt-input__connect" autofocus="">
                                 </div>
-
                             </div>
-
-
                             <div class="text-right mt-10">
-                                <submit-button submit-text="Connecting" submit-class="opacity-50 cursor-not-allowed">
-                                    <button type="submit" class="cndt-btn cndt-btn-lg cndt-btn-primary"
-                                            :class="(isSubmitting || isSubmitDisabled) ? 'opacity-50 cursor-not-allowed' : ''"
-                                            :disabled="isSubmitting || isSubmitDisabled">
-                                        <svg x-show="isSubmitting" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                             style="display: none;">
-                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                                                    stroke-width="4"></circle>
-                                            <path class="opacity-75" fill="currentColor"
-                                                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                        </svg>
-                                        <span x-show="!isSubmitting">Connect</span>
-                                        <span x-show="isSubmitting" style="display: none;">Connecting</span>
-                                    </button>
-                                </submit-button>
-
+                                <button type="submit" class="cndt-btn cndt-btn-lg cndt-btn-primary"
+                                        :class="(isSubmitting || isSubmitDisabled) ? 'opacity-50 cursor-not-allowed' : ''"
+                                        :disabled="isSubmitting || isSubmitDisabled">
+                                    <svg x-show="isSubmitting" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         style="display: none;">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                                stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor"
+                                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                    <span x-show="!isSubmitting">Connect</span>
+                                    <span x-show="isSubmitting" style="display: none;">Connecting</span>
+                                </button>
                             </div>
                         </form>
                         {% endblock %}
-
                     </div>
                 </div>
-
             </div>
-
-
         </main>
     </div>
-
-
 </div>
 
 </body>
+<script src="{{ url_for('static', filename='script.min.js') }}"></script>
 </html>
