@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 @app.route('/', methods=["GET"])
 def info():
-    return "cndt.app minimal driver"
+    return "conduit.app minimal driver"
 
 
 @app.route("/stats", methods=["POST"])
