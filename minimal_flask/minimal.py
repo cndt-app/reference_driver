@@ -1,25 +1,19 @@
 import datetime
 import json
-from functools import wraps
-from flask import Flask, request, abort, jsonify, render_template, redirect
-from werkzeug.exceptions import HTTPException
-import requests
 import logging
 import zoneinfo
+
+import requests
+from flask import Flask, redirect, render_template, request
 
 app = Flask(__name__)
 logging.basicConfig()
 logger = logging.getLogger(__name__)
 
 
-# @app.after_request
-# def add_header(response):
-#     response.cache_control.max_age = 1
-#     return response
-
 @app.route('/', methods=["GET"])
 def info():
-    return "cndt.app driver"
+    return "cndt.app minimal driver"
 
 
 @app.route("/stats", methods=["POST"])
@@ -37,6 +31,7 @@ def stats():
     # requesting external data
     with open('adschema.json') as f:
         lines = f.read()
+
     # returning data in JSON format
     return lines, 200
 
@@ -65,8 +60,11 @@ async def test_connect():
     token = request.form.get("token")
     callback_url = request.form.get("callback_url")
 
-    _status = 0
+    status = 0
     status_message = None
+
+    context = get_context()
+    context.update(request.form)
 
     # verify that the credentials are correct
     errors = []
@@ -77,17 +75,16 @@ async def test_connect():
         errors.append('Password to simple')
 
     if errors:
-        context = get_context() | {'errors': errors}
-        context.update(request.form)
-
-        return render_template("connect_button.html", **context)
+        status = 2
+        status_message = ', '.join(errors)
+        context.update({'errors': errors})
 
     # for refresh endpoint example
     expire_at = get_expiration_timestamp()
 
     message = {
         "credentials": {"login": login, "password": password, "expire_at": expire_at},
-        "status": _status,
+        "status": status,
         "status_message": status_message
     }
 
@@ -95,8 +92,15 @@ async def test_connect():
 
     redirect_url = callback_data.get('redirect_url', request.form.get('return_url'))
 
-    if sandbox_status in [200]:
+    if sandbox_status == 401:  # token expired
         # return to the server's UI
+        return redirect(redirect_url)
+
+    if sandbox_status == 200:
+        if errors:
+            return render_template("connect_button.html", **context)
+
+        # all is OK. return to the server's UI
         return redirect(redirect_url)
 
     # display an error to the user
@@ -120,11 +124,6 @@ def auth_is_expire(auth_data):
 
 def get_expiration_timestamp():
     return (datetime.datetime.now() + datetime.timedelta(minutes=15)).timestamp()
-
-
-async def request_sandbox2(url, data):
-    r = requests.post(url, json=data)
-    return r.status_code, r.content
 
 
 async def request_sandbox(url, data, token):
