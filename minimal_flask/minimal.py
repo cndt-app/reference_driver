@@ -107,6 +107,11 @@ async def test_connect():
     return f'{sandbox_content}<br><a href="{redirect_url}">Return</a>', sandbox_status
 
 
+@app.route("/components_reference", methods=["GET"])
+def components_reference():
+    return render_template("components_reference.html")
+
+
 def get_context():
     return {"driver_name": "Minimalistic Example"}
 
