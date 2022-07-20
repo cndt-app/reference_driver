@@ -1,11 +1,7 @@
+import datetime
 import json
 import logging
-import datetime
-
-import requests
 import zoneinfo
-from flask import Flask, request, render_template, redirect
-
 
 import requests
 from flask import Flask, redirect, render_template, request

@@ -1,8 +1,9 @@
-from functools import wraps
-from flask import Flask, request, abort, jsonify, render_template, redirect
-from werkzeug.exceptions import HTTPException
-import requests
 import logging
+from functools import wraps
+
+import requests
+from flask import Flask, abort, jsonify, redirect, render_template, request
+from werkzeug.exceptions import HTTPException
 
 app = Flask(__name__)
 logging.basicConfig()
