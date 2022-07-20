@@ -1,0 +1,286 @@
+{% extends "base.html" %}
+{% block title %}Components reference{% endblock %}
+{% block body %}
+    <h1 class="cndt-text-title0 p-3">Titles</h1>
+    <table class="min-w-full divide-y border border-gray-medium border-collapse">
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <h1 class="cndt-text-title0">Big title</h1>
+            </td>
+            <td class="p-2 bg-gray-lightest1 border border-gray-medium">
+                <p>&lt;h1 class="cndt-text-title0"&gt;Big title&lt;/h1&gt;</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <h1 class="cndt-text-title1">Smaller title</h1>
+            </td>
+            <td class="p-2 bg-gray-lightest1 border border-gray-medium">
+                <p>&lt;h1 class="cndt-text-title1"&gt;Smaller title&lt;/h1&gt;</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <h1 class="cndt-text-title2">Smallest title</h1>
+            </td>
+            <td class="p-2 bg-gray-lightest1 border border-gray-medium">
+                <p>&lt;h1 class="cndt-text-title2"&gt;Smallest title&lt;/h1&gt;</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <h1 class="cndt-text-title2light">Light smallest title</h1>
+            </td>
+            <td class="p-2 bg-gray-lightest1 border border-gray-medium">
+                <p>&lt;h1 class="cndt-text-title2light"&gt;Light smallest title&lt;/h1&gt;</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <h2 class="cndt-text-headline">Headline</h2>
+            </td>
+            <td class="p-2 bg-gray-lightest1 border border-gray-medium">
+                <p>&lt;h1 class="cndt-text-headline"&gt;Headline&lt;/h1&gt;</p>
+            </td>
+        </tr>
+    </table>
+
+    <h1 class="cndt-text-title0 p-3">Buttons</h1>
+    <table class="min-w-full divide-y border border-gray-medium border-collapse">
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <button type="submit" class="cndt-btn cndt-btn-lg cndt-btn-primary">
+                    <span>Submit</span>
+                </button>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                <p>
+                    &lt;button type=&quot;submit&quot; class=&quot;cndt-btn cndt-btn-lg cndt-btn-primary&quot;&gt;<br>
+                    &nbsp;&nbsp; &lt;span&gt;Submit&lt;/span&gt;<br>
+                    &lt;/button&gt;
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <button type="button" class="cndt-btn cndt-btn-lg cndt-btn-gray">
+                    <span>Cancel</span>
+                </button>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                <p>
+                &lt;button type=&quot;button&quot; class=&quot;cndt-btn cndt-btn-lg cndt-btn-gray&quot;&gt;<br>
+                &nbsp;&nbsp;&lt;span&gt;Cancel&lt;/span&gt;<br>
+                &lt;/button&gt;
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+            <button type="button" disabled="" class="cndt-btn cndt-btn-lg cndt-btn-gray cursor-not-allowed">
+                <span>Disabled</span>
+            </button>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                &lt;button type=&quot;button&quot; disabled=&quot;&quot; class=&quot;cndt-btn cndt-btn-lg cndt-btn-gray cursor-not-allowed&quot;&gt;<br>
+                &nbsp;&nbsp;&lt;span&gt;Disabled&lt;/span&gt;<br>
+                &lt;/button&gt;
+            </td>
+        </tr>
+        <!-- Danger button -->
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <button type="button" disabled=""
+                        class="cndt-btn cndt-btn-lg cndt-btn-danger">
+                    <span>Danger</span>
+                </button>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                <span>
+                &lt;button type=&quot;button&quot; disabled=&quot;&quot; class=&quot;cndt-btn cndt-btn-lg cndt-btn-danger&quot;&gt; <br>
+                &nbsp;&nbsp;&lt;span&gt;Danger&lt;/span&gt; <br>
+                &lt;/button&gt;
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <button type="button" disabled=""
+                        class="cndt-btn cndt-btn-lg cndt-btn-danger_red">
+                    <span>Red danger</span>
+                </button>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                <span>
+                &lt;button type=&quot;button&quot; disabled=&quot;&quot; class=&quot;cndt-btn cndt-btn-lg cndt-btn-danger_red&quot;&gt; <br>
+                &nbsp;&nbsp;&lt;span&gt;Red Danger&lt;/span&gt; <br>
+                &lt;/button&gt;
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <button type="button" disabled=""
+                        class="cndt-btn cndt-btn-lg cndt-btn-primary">
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Submitting..</span>
+                </button>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                <span>
+                &lt;button type=&quot;button&quot; class=&quot;cndt-btn cndt-btn-lg cndt-btn-primary&quot;<br>
+                    disabled=&quot;&quot;&gt;<br>
+                    &nbsp;&nbsp;&lt;svg class=&quot;animate-spin -ml-1 mr-3 h-5 w-5 text-white&quot;<br>
+                    &nbsp;&nbsp;xmlns=&quot;http://www.w3.org/2000/svg&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot;&gt; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;circle class=&quot;opacity-25&quot; cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; stroke=&quot;currentColor&quot;<br>
+                    stroke-width=&quot;4&quot;&gt;&lt;/circle&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;path class=&quot;opacity-75&quot; fill=&quot;currentColor&quot;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;d=&quot;M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z&quot;&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/path&gt;<br>
+                    &nbsp;&nbsp;&lt;/svg&gt; <br>
+                    &nbsp;&nbsp;&lt;span&gt;Submitting..&lt;/span&gt;<br>
+                &lt;/button&gt;
+                </span>
+            </td>
+        </tr>
+    </table>
+
+    <h1 class="cndt-text-title0 p-3">Inputs</h1>
+    <table class="min-w-full divide-y border border-gray-medium border-collapse">
+        <!-- Standard input -->
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <label class="cndt-label cndt-label-md">
+                    <input type="text" class="cndt-input" placeholder="Standard input">
+                </label>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                <p>&lt;input type=&quot;text&quot; class=&quot;cndt-input&quot; placeholder=&quot;Standard input&quot;&gt;</p>
+            </td>
+        </tr>
+        <!-- Small input -->
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <input type="text" class="cndt-input cndt-input-lg" placeholder="Large input">
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                &lt;input type=&quot;text&quot; class=&quot;cndt-input cndt-input-lg&quot;<br> placeholder=&quot;Large input&quot;&gt;
+            </td>
+        </tr>
+        <!-- Connecting input -->
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <input type="text" class="cndt-input cndt-input__connect" placeholder="Submitting.. input" disabled="">
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                &lt;input type=&quot;text&quot; class=&quot;cndt-input cndt-input__connect&quot; <br>
+                disabled=&quot;&quot; placeholder=&quot;Submitting.. input&quot;&gt;
+            </td>
+        </tr>
+        <!-- Disabled input -->
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <input type="text" disabled="" class="cndt-input cndt-input_disabled" placeholder="Disabled input">
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                &lt;input type=&quot;text&quot; disabled=&quot;&quot; class=&quot;cndt-input cndt-input_disabled&quot; placeholder=&quot;Disabled input&quot;&gt;
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <label class="cndt-label">
+                    Basic label
+                    <input type="text" class="cndt-input" placeholder="">
+                </label>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                &lt;label class=&quot;cndt-label&quot;&gt; <br>
+                &nbsp;&nbsp;Basic label <br>
+                &nbsp;&nbsp;&lt;input type=&quot;text&quot; class=&quot;cndt-input&quot; placeholder=&quot;&quot;&gt;<br>
+                &lt;/label&gt;
+            </td>
+        </tr>
+       <tr>
+            <td class="p-2 border border-gray-medium">
+                <label class="cndt-label cndt-label-sm">
+                    Small label
+                    <input type="text" class="cndt-input" placeholder="">
+                </label>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                &lt;label class=&quot;cndt-label cndt-label-sm&quot;&gt; <br>
+                &nbsp;&nbsp;Small label <br>
+                &nbsp;&nbsp;&lt;input type=&quot;text&quot; class=&quot;cndt-input&quot; placeholder=&quot;&quot;&gt;<br>
+                &lt;/label&gt;
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <label class="cndt-label cndt-label-md">
+                    Semi-bold label
+                    <input type="text" class="cndt-input" placeholder="">
+                </label>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                &lt;label class=&quot;cndt-label cndt-label-md&quot;&gt; <br>
+                &nbsp;&nbsp; Semi-bold label <br>
+                &nbsp;&nbsp;&lt;input type=&quot;text&quot; class=&quot;cndt-input&quot; placeholder=&quot;&quot;&gt;<br>
+                &lt;/label&gt;
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <div class="flex items-center">
+                    <input id="checkbox_field" name="checkbox_field" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <label for="checkbox_field" class="ml-2 cndt-label cndt-label-sm">
+                    Checkbox
+                    </label>
+                </div>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                &lt;div class=&quot;flex items-center&quot;&gt; <br>
+                &nbsp;&nbsp;&lt;input id=&quot;checkbox_field&quot; name=&quot;checkbox_field&quot; type=&quot;checkbox&quot;<br>
+                &nbsp;&nbsp;class=&quot;h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded&quot;&gt;<br>
+                &nbsp;&nbsp;&lt;label for=&quot;checkbox_field&quot; class=&quot;ml-2 cndt-label cndt-label-sm&quot;&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Checkbox <br>
+                &nbsp;&nbsp;&lt;/label&gt;<br>
+                &lt;/div&gt;
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <div class="rounded-md bg-red-light py-3 pl-3 pr-6 mb-4">
+                    <p class="cndt-text-bodysmall text-red">Some form error</p>
+                </div>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                &lt;div class=&quot;rounded-md bg-red-light py-3 pl-3 pr-6 mb-4&quot;&gt;<br>
+                &nbsp;&nbsp;&lt;p class=&quot;cndt-text-bodysmall text-red&quot;&gt;Some form error&lt;/p&gt;<br>
+                &lt;/div&gt;
+            </td>
+        </tr>
+        <tr>
+            <td class="p-2 border border-gray-medium">
+                <label for="error_field" class="ml-2 cndt-label cndt-label-sm">Input with error</label>
+                <input type="text" name="error_field" id="error_field"
+                       class="block border-red-light placeholder-red-light sm:text-sm rounded-md"
+                       value="2323" aria-invalid="true" aria-describedby="error_field-error">
+                <p class="mt-2 text-sm text-red" id="error_field-error">Password too simple</p>
+            </td>
+            <td class="p-2 border border-gray-medium bg-gray-lightest1">
+                &lt;label for=&quot;error_field&quot; class=&quot;ml-2 cndt-label cndt-label-sm&quot;&gt;<br>
+                &nbsp;&nbsp;Input with error<br>
+                &lt;/label&gt;<br>
+                &lt;input type=&quot;text&quot; name=&quot;error_field&quot; id=&quot;error_field&quot;<br>
+               &nbsp;&nbsp;class=&quot;block border-red-light placeholder-red-light sm:text-sm rounded-md&quot;<br>
+               &nbsp;&nbsp;value=&quot;2323&quot; aria-invalid=&quot;true&quot; aria-describedby=&quot;error_field-error&quot;&gt;<br>
+                &lt;p class=&quot;mt-2 text-sm text-red&quot; id=&quot;error_field-error&quot;&gt;Password too simple&lt;/p&gt;
+            </td>
+        </tr>
+    </table>
+{% endblock %}

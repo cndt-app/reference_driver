@@ -7,15 +7,10 @@ import zoneinfo
 from flask import Flask, request, render_template, redirect
 
 
-app = Flask(__name__, static_url_path="/static/", static_folder="static")
+app = Flask(__name__)
 logging.basicConfig()
 logger = logging.getLogger(__name__)
 
-
-# @app.after_request
-# def add_header(response):
-#     response.cache_control.max_age = 1
-#     return response
 
 @app.route('/', methods=["GET"])
 def info():
@@ -101,6 +96,11 @@ async def test_connect():
 
     # display an error to the user
     return f'{sandbox_content}<br><a href="{redirect_url}">Return</a>', sandbox_status
+
+
+@app.route("/components_reference", methods=["GET"])
+def components_reference():
+    return render_template("components_reference.html")
 
 
 def get_context():
