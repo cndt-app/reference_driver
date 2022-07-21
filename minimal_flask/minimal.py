@@ -49,7 +49,7 @@ def refresh():
 def connect():
     context = get_context()
     context.update(request.args)
-    return render_template("connect_button.html", **context)
+    return render_template("connect_form.html", **context)
 
 
 @app.route("/test_connect", methods=["POST"])
@@ -98,7 +98,7 @@ async def test_connect():
 
     if sandbox_status == 200:
         if errors:
-            return render_template("connect_button.html", **context)
+            return render_template("connect_form.html", **context)
 
         # all is OK. return to the server's UI
         return redirect(redirect_url)
