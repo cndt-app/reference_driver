@@ -1,5 +1,11 @@
 {% extends "base_form.html" %}
-{% block title %}Connect to Minimalistic Reference Driver{% endblock %}
+
+{% block title %}Connect to {{ driver_name }}{% endblock %}
+
+{% block logo %}<img src="/static/default_logo.svg" alt="{{ driver_name }}" class="h-20 w-20">{% endblock %}
+
+{% block header %}{{ driver_name }}{% endblock %}
+
 {% block form %}
     {% if errors %}
         <div class="rounded-md bg-red-light py-3 pl-3 pr-6 mb-4">

@@ -3,10 +3,10 @@
 <div class="m-auto text-center">
     <div class="mb-9">
         <div class="flex justify-center mb-7">
-            <img src="https://cndt-static.s3.us-east-2.amazonaws.com/static/img/drivers/gorgias.svg"
-                 alt="stripe" class="h-20 w-20">
+            {% block logo %}
+            {% endblock %}
         </div>
-        <h1 class="cndt-text-title0">{{ driver_name }}</h1>
+        <h1 class="cndt-text-title0">{% block header %}{% endblock %}</h1>
     </div>
     <div class="w-full md:w-96 lg:w-120 mx-auto">
         {% block form %}
