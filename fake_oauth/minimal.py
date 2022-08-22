@@ -48,8 +48,9 @@ def stats() -> tuple[Any, int]:
 def refresh() -> tuple[Any, int]:
     """Refresh Auth Data and return as JSON"""
     auth_data = get_auth_data()
+    # Start OAuth token refresh process ...
     auth_data.expires_at = get_expiration_timestamp()
-
+    # and return a new token
     return asdict(auth_data), 200
 
 
@@ -94,7 +95,7 @@ def oauth_callback() -> Any:
     errors: list[str] = []
 
     if errors:
-        status = 1
+        status = 2
         status_message = ', '.join(errors)
 
     message = {
