@@ -94,7 +94,7 @@ def oauth_callback() -> Any:
     errors: list[str] = []
 
     if errors:
-        status = 1
+        status = 2
         status_message = ', '.join(errors)
 
     message = {
