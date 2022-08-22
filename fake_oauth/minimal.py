@@ -2,15 +2,13 @@ import datetime
 import json
 import logging
 import uuid
-import zoneinfo
 from dataclasses import asdict
 from typing import Any
 
+import adschema
 import requests
 from auth import OauthSecrets, auth_is_expire, get_auth_data, get_expiration_timestamp
 from flask import Flask, redirect, request, url_for
-
-import adschema
 from utils import add_query_to_url
 
 app = Flask(__name__)
@@ -31,14 +29,16 @@ def stats() -> tuple[Any, int]:
 
     if auth_is_expire(auth_data):
         # if auth need to refresh stop processing and return HTTP401
-        return {}, 401
+        return '{}', 401
 
     date = datetime.date.fromisoformat(body['date'])
-    tz = zoneinfo.ZoneInfo(body['tz'])
     native_id = body['native_id']  # Account internal id
+    # Also you can get timezone parameter as zoneinfo.ZoneInfo(body['tz'])
 
     row = adschema.row
     row['date'] = date.isoformat()
+    row['ad_account'] = native_id
+    row['ad_account_name'] = f'Account {native_id}'
 
     # returning data in JSON format
     return json.dumps([row]), 200
@@ -75,7 +75,7 @@ def connect() -> Any:
 
 
 @app.route('/oauth_callback', methods=['GET'])
-async def oauth_callback() -> Any:
+def oauth_callback() -> Any:
     """Finishes OAuth connection procedure. Sends result to sandbox API."""
     return_url = request.args['return_url']
     callback_url = request.args['sandbox_callback_url']
@@ -104,7 +104,7 @@ async def oauth_callback() -> Any:
     }
 
     # Send result of the try to sandbox API
-    sandbox_status, sandbox_content, callback_data = await request_sandbox(callback_url, message, token)
+    sandbox_status, sandbox_content, callback_data = request_sandbox(callback_url, message, token)
 
     redirect_url = callback_data.get('redirect_url', return_url)
 
@@ -120,7 +120,7 @@ async def oauth_callback() -> Any:
     return f'{sandbox_content}<br><a href="{redirect_url}">Return</a>', sandbox_status
 
 
-async def request_sandbox(url: str, data: dict[str, Any], token: str) -> tuple[int, str, dict[Any, Any]]:
+def request_sandbox(url: str, data: dict[str, Any], token: str) -> tuple[int, str, dict[Any, Any]]:
     callback_data = {}
 
     try:
