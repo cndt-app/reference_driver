@@ -36,9 +36,9 @@ def stats() -> tuple[Any, int]:
     # Also you can get timezone parameter as zoneinfo.ZoneInfo(body['tz'])
 
     row = adschema.row
-    row['date'] = date.isoformat()
-    row['ad_account'] = native_id
-    row['ad_account_name'] = f'Account {native_id}'
+    row['Date'] = date.isoformat()
+    row['AdAccount'] = native_id
+    row['AdAccount name'] = f'Account {native_id}'
 
     # returning data in JSON format
     return json.dumps([row]), 200
